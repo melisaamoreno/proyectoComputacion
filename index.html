@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Registro de ventas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="CSS/proyecto.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> 
+<link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    
+    </head>
+    <body>
+    <div class="container">
+        <div class="div SucursalReporte">
+            <div><h3>Ventas por sucursal</h3></div>
+            <table>
+                <tr>
+                  <th>Sucursal</th>
+                  <th>Total ventas</th>
+                </tr>
+              </table>
+
+        </div>
+
+        <div class="div SucursalReporte">
+            <h3>Reportes</h3>
+            <p>Productos estrella:</p> 
+            <p>Vendedora que más ingresos generó:</p> 
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="div ventas"> 
+            <h3>Ventas <button id="btnVenta"> <img src="../Proyecto/Iconos/plus.svg" class="plus"> Nueva venta </button></h3>
+            <!--Btn modal-->
+
+            <table>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Vendedora</th>
+                  <th>Sucursal</th>
+                  <th>Componentes</th>
+                  <th>Precio</th>
+                  <th>Acciones</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><img src="..//Proyecto/Iconos/pen.svg" class="pen"> <img src="..//Proyecto/Iconos/trash.svg" class="trash"></td>
+                </tr>
+
+              </table>
+            
+
+        </div>
+    </div>
+
+     <!--Modal-->
+     <!--Agregar venta-->
+
+<div class="modal-container"> 
+  
+     <div id="modal" class="div modal">
+        <span class="close" id="btnClose">&times;</span>
+    <form id="addSell">
+     <h3>Agregar venta</h3>
+
+     <p>Vendedora</p>
+     <select name="vendedoras" class="selects">
+        <option value="Ada">Ada</option>
+        <option value="Grace">Grace</option>
+        <option value="Hedy">Hedy</option>
+        <option value="Sheryl">Sheryl</option>
+    </select>
+
+     <p>Componentes</p>
+     <select name="componentes" class="selects multiple" multiple>
+     <option value="">Monitor GPRS 3000</option>
+     <option value="">Motherboard ASUS 1500</option>
+     <option value="">Monitor ASC 543</option>
+     <option value="">Motherboard ASUS 1200</option>
+     <option value="">Motherboard MZI</option>
+     <option value="">HDD Toyiva</option>
+     <option value="">HDD Wezter Dishital</option>
+     <option value="">RAM Quinston</option>
+     <option value="">RAM Quinston Fury</option>
+     </select>
+
+     <p>Sucursal</p>
+     <select name="sucursal" class="selects">
+         <option>Centro</option>
+         <option>Caballito</option>
+     </select>
+
+     <p>Fecha</p>
+     <input type="date" name="datetime" class="selects">
+
+     <div class="buttons">
+     <button id="cancelar" class="btns">Cancelar</button>
+     <button id="guardar" class="btns save">Guardar</button>
+    </form>
+    </div>
+     </div>
+</div>
+
+
+
+<!--Editar venta-->
+  <div class="modal-container edit"> 
+       <div id="modal" class="div modal"> 
+       <span class="close" id="xcloser">&times;</span>
+        
+       <h3>Editar venta</h3> 
+  <form id="formEdit">
+       <p>Vendedora</p>
+       <select name="vendedoras" class="selects">
+          <option value="Ada">Ada</option>
+          <option value="Grace">Grace</option>
+          <option value="Hedy">Hedy</option>
+          <option value="Sheryl">Sheryl</option>
+      </select>
+  
+       <p>Componentes</p>
+       <select name="componentes" class="selects multiple" onchange="selectValue();" multiple >
+       <option value="">Monitor GPRS 3000</option>
+       <option value="">Motherboard ASUS 1500</option>
+       <option value="">Monitor ASC 543</option>
+       <option value="">Motherboard ASUS 1200</option>
+       <option value="">Motherboard MZI</option>
+       <option value="">HDD Toyiva</option>
+       <option value="">HDD Wezter Dishital</option>
+       <option value="">RAM Quinston</option>
+       <option value="">RAM Quinston Fury</option>
+       </select>
+  
+       <p>Sucursal</p>
+       <select name="sucursal" class="selects">
+           <option>Centro</option>
+           <option>Caballito</option>
+       </select>
+  
+       <p>Fecha</p>
+       <input type="date" name="datetime" class="selects">
+  
+       <div class="buttons">
+       <button id="cancelar" class="btns">Cancelar</button>
+       <button id="guardar" class="btns save">Guardar</button> 
+      </form>
+      </div>
+       </div>
+  </div>
+  
+
+
+     <!--Eliminar venta-->
+  <div class="modal-container modalDelete"> 
+    <div id="modal" class="div modal">
+       <span class="close" id="xclose">&times;</span>
+    <h3>Eliminar venta</h3>
+    <h2>¿Está seguro?</h2>
+    <p>Esta acción no se puede revertir</p>
+
+    <div class="buttons">
+      <button id="cancelarDelete" class="btns">Cancelar</button>
+      <button id="delete" class="btns Delete">Eliminar</button>
+     </div>
+    </div>
+    </div> 
+
+
+<script src="JS/proyectocomputacion.js"></script>
+
+    </body>
+</html>
