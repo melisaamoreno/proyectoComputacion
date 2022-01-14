@@ -41,7 +41,7 @@
             <h3>Ventas <button id="btnVenta"> <img src="../Proyecto/Iconos/plus.svg" class="plus"> Nueva venta </button></h3>
             <!--Btn modal-->
 
-            <table id="ventas">
+            <table id="tables">
                 <tr>
                   <th class="fecha">Fecha</th>
                   <th>Vendedora</th>
@@ -51,7 +51,7 @@
                   <th>Acciones</th>
                 </tr>
                 <tr>
-                    <td></td>
+                   <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -76,30 +76,15 @@
      <h3>Agregar venta</h3>
 
      <p>Vendedora</p>
-     <select name="vendedoras" class="selects">
-        <option value="Ada">Ada</option>
-        <option value="Grace">Grace</option>
-        <option value="Hedy">Hedy</option>
-        <option value="Sheryl">Sheryl</option>
+     <select name="vendedoras" class="selects  select-vendedora">
     </select>
 
      <p>Componentes</p>
      <select name="componentes" class="selects multiple" multiple>
-     <option value="">Monitor GPRS 3000</option>
-     <option value="">Motherboard ASUS 1500</option>
-     <option value="">Monitor ASC 543</option>
-     <option value="">Motherboard ASUS 1200</option>
-     <option value="">Motherboard MZI</option>
-     <option value="">HDD Toyiva</option>
-     <option value="">HDD Wezter Dishital</option>
-     <option value="">RAM Quinston</option>
-     <option value="">RAM Quinston Fury</option>
      </select>
 
      <p>Sucursal</p>
-     <select name="sucursal" class="selects">
-         <option>Centro</option>
-         <option>Caballito</option>
+     <select name="sucursal" class="selects  sede">
      </select>
 
      <p>Fecha</p>
@@ -115,7 +100,7 @@
 
 
 
-<!--Editar venta-->
+<!--  ------------- Editar venta ------------------ --->
   <div class="modal-container edit"> 
        <div id="modal" class="div modal"> 
        <span class="close" id="xcloser">&times;</span>
@@ -123,30 +108,18 @@
        <h3>Editar venta</h3> 
   <form id="formEdit">
        <p>Vendedora</p>
-       <select name="vendedoras" class="selects">
-          <option value="Ada">Ada</option>
-          <option value="Grace">Grace</option>
-          <option value="Hedy">Hedy</option>
-          <option value="Sheryl">Sheryl</option>
+       <select name="vendedoras" class="selects  select-seller">
+         
       </select>
   
        <p>Componentes</p>
-       <select name="componentes" class="selects multiple" onchange="selectValue();" multiple >
-       <option value="">Monitor GPRS 3000</option>
-       <option value="">Motherboard ASUS 1500</option>
-       <option value="">Monitor ASC 543</option>
-       <option value="">Motherboard ASUS 1200</option>
-       <option value="">Motherboard MZI</option>
-       <option value="">HDD Toyiva</option>
-       <option value="">HDD Wezter Dishital</option>
-       <option value="">RAM Quinston</option>
-       <option value="">RAM Quinston Fury</option>
+       <select name="componentes" class="selects multiple  selectmultiple" multiple >
+      
        </select>
   
        <p>Sucursal</p>
        <select name="sucursal" class="selects">
-           <option>Centro</option>
-           <option>Caballito</option>
+          
        </select>
   
        <p>Fecha</p>
@@ -161,8 +134,8 @@
   </div>
   
 
-
-     <!--Eliminar venta-->
+ <!-- ---------------Eliminar venta----------------->
+    
   <div class="modal-container modalDelete"> 
     <div id="modal" class="div modal">
        <span class="close" id="xclose">&times;</span>

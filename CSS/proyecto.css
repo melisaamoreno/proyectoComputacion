@@ -66,7 +66,7 @@ p{
 }
 .multiple{
     height: 80px;
-    overflow: hidden;
+    overflow:auto;
 }
 .buttons{
     display: flex;
