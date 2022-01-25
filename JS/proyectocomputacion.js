@@ -1,55 +1,5 @@
-//  ---------- AGREGAR VENTA ---------- //
-const btnModal = document.querySelector('#btnVenta');
-const btnClose = document.querySelector('.close');
-const btnCancel = document.querySelector('#cancelar');
-const modal = document.querySelector('.modal-container');
-
-
-//            EVENTOS           // 
-btnModal.addEventListener('click', () => {
-    modal.style.display = "block"
-})
-
-btnClose.addEventListener('click', () => {
-    modal.style.display = "none"
-})
-
-//  ----------- EDITAR VENTA ----------- //
-const btnEditar = document.querySelector('.pen')
-const editarModal = document.querySelector('.edit')
-const closebtn = document.querySelector('#xcloser')
-
-btnEditar.addEventListener('click', () => {
-  editarModal.style.display = "block"
-})
-closebtn.addEventListener('click', () => {
-  editarModal.style.display = "none"
-})
-
-
-// ---------- ELIMINAR VENTA ----------- // 
-const closer = document.querySelector('#xclose');
-const modalDelete = document.querySelector('.modalDelete');
-const trash = document.querySelector('.trash');
-const btnDelete = document.querySelector('#delete');
-const cancelarDelete = document.querySelector('#cancelarDelete');
-
-trash.addEventListener('click', () => {
-  modalDelete.style.display = "block"
-})
-
-closer.addEventListener('click', () => {
-  modalDelete.style.display = "none"
-})
-
-cancelarDelete.addEventListener('click', () => {
-  modalDelete.style.display = "none"
-})
-
-
-// ARRAYS //
+//       ----------       ARRAYS    -------------       //
 const vendedoras = ["Ada", "Grace", "Hedy", "Sheryl"];
-
 
 const componentes = ["Monitor GPRS 3000","Motherboard ASUS 1500", "Monitor ASC 543","Motherboard ASUS 1200", "Motherboard MZI", "HDD Toyiva", "HDD Wezter Dishital", "RAM Quinston", "RAM Quinston Fury"]
 
@@ -106,52 +56,57 @@ const precios = [
 
 const sucursales = ["Centro", "Caballito"];
 
-// ---------------------------------------------------------- // 
-
-//  IMPRIMIR EL ARRAY EN LA TABLA //
-
-const format = (date, locale, options) => new Intl.DateTimeFormat(locale, options).format(date);
-
-const tabla = document.getElementById('tables')
-const tablaVentas = () => {
-
-
+//  -------------------------CARGAR ARRAY EN TABLA  -------------------- //
+const table = document.querySelector('#table-2')
+const crearTabla = () => {
   for (let i = 0; i < ventas.length; i++){
-    const newTr = document.createElement('tr');
-    tabla.appendChild(newTr)
+    let newTr = document.createElement('tr')
+    table.appendChild(newTr)
 
     for (let j = 0; j < ventas[i].length; j++) {
 
-      const fechaVentas = format(ventas[i][1] ,'es')
-      console.log (fechaVentas)
+      const fechaVentas = ventas[i][1]
+      //console.log (fechaVentas)
       const nombreVenta = ventas[i][2]
-      console.log(nombreVenta)
+      //console.log(nombreVenta)
       const sucursalVenta = ventas[i][3]
-      console.log(sucursalVenta)
+      //console.log(sucursalVenta)
       const componentesVenta = ventas[i][4]
-      console.log(componentesVenta)
+      //console.log(componentesVenta)
+
     
-       
-       newTr.innerHTML = `<td>${fechaVentas},</td><td>${nombreVenta}</td><td>${sucursalVenta}</td><td>${componentesVenta}</td> <td>precio</td>`
-    
+       newTr.innerHTML = `<td>${fechaVentas},</td><td>${nombreVenta}</td><td>${sucursalVenta}</td><td>${componentesVenta}</td> <td>precio</td> <td><img src="..//Proyecto/Iconos/pen.svg" class="pen  icon"> <img src="..//Proyecto/Iconos/trash.svg" class="trash   icon"></td>`
     
       } }
 
-  }
+    
+}
+
+crearTabla(ventas)
 
 
-tablaVentas()
-// ------------------------------------------------------------ // 
+//  ---------- AGREGAR VENTA ---------- //
+const btnModal = document.querySelector('#btnVenta');
+const btnClose = document.querySelector('.close');
+const btnCancel = document.querySelector('#cancelar');
+const modal = document.querySelector('.modal-container');
 
 
-//      AGREGAR SELECTS  // AGREGAR VENTA  //
+//      ------   ABRIR MODAL  -----      // 
+btnModal.addEventListener('click', () => {
+    modal.style.display = "block"
+})
 
+btnClose.addEventListener('click', () => {
+    modal.style.display = "none"
+})
+
+//  ---- OPTIONS AGREGAR VENTA ------ //
 const selectVendedora = document.querySelector('.select-vendedora');
 
 const agregarVendedoras = () => {
   for (let i = 0; i < vendedoras.length; i++){
     const selectVend = document.createElement('option')
-    /*selectVend.classList.add('selects')*/
     selectVendedora.appendChild(selectVend)
     selectVend.innerHTML = `${vendedoras[i]}`
   }
@@ -169,7 +124,6 @@ const agregarComponentes = () => {
   
   }
 }
-
 agregarComponentes()
 
 const selectSucursal = document.querySelector('.sede');
@@ -182,11 +136,24 @@ const agregarSucursal = () => {
   
   }
 }
-
 agregarSucursal()
 
 
-//       AGREGAR SELECTS  //  EDITAR  VENTA   ///
+//     ---------------  EDITAR VENTA -------------------- //
+const btnEditar = document.querySelector('.pen')
+const editarModal = document.querySelector('.edit')
+const closebtn = document.querySelector('#xcloser')
+
+btnEditar.addEventListener('click', () => {
+  editarModal.style.display = "block"
+})
+closebtn.addEventListener('click', () => {
+  editarModal.style.display = "none"
+})
+
+
+
+//       AGREGAR OPTIONS  //  EDITAR  VENTA   ///
 
 const selectSeller = document.querySelector('.select-seller');
 
@@ -197,33 +164,98 @@ const addVendedoras = () => {
     sellers.innerHTML = `${vendedoras[i]}`
   }
 }
- 
 addVendedoras()
 
-/*const selectMultiple = document.querySelector('.selectmultiple');
+const componenteSelect = document.querySelector('.componenteSelect');
 
-const multiSelect = () => {
-  for (let i = 0; i < precios.length; i++)
-  const options = document.createElement('option')
-  selectMultiple.appendChild(options)
-  options.innerHTML = `${precios[i][0]}`
+const componenteOptions = () => {
+for (let i = 0; i < precios.length; i++){
+    const optionComponente = document.createElement('option')
+    componenteSelect.appendChild(optionComponente)
+    optionComponente.innerHTML = `${precios[i][0]}`
+}
+}
+componenteOptions()
+
+const optionSucursal = document.querySelector('.optionSucursal');
+
+const sucursalSelect = () => {
+    for (let i = 0; i < sucursales.length; i++){
+        const sucursalesOp = document.createElement('option')
+        optionSucursal.appendChild(sucursalesOp)
+        sucursalesOp.innerHTML = `${sucursales[i]}`
+    }
+}
+sucursalSelect()
+
+
+
+//     --------------------  ELIMINAR VENTA  ------------------------------ //
+const closer = document.querySelector('#xclose');
+const modalDelete = document.querySelector('.modalDelete');
+const trash = document.querySelector('.trash');
+const btnDelete = document.querySelector('#delete');
+const cancelarDelete = document.querySelector('#cancelarDelete');
+
+trash.addEventListener('click', () => {
+  modalDelete.style.display = "block"
+})
+
+closer.addEventListener('click', () => {
+  modalDelete.style.display = "none"
+})
+
+cancelarDelete.addEventListener('click', () => {
+  modalDelete.style.display = "none"
+})
+
+// -------------- TABLA DE VENTAS POR SUCURSAL -------------------------- //
+
+
+const tablaPorSucursal = document.querySelector('#table-1');
+const ventasPorSucursal = () => {
+    for (let i = 0; i < sucursales.length; i++){
+        const nuevaTr = document.createElement('tr')
+        tablaPorSucursal.appendChild(nuevaTr)
+
+        for (let j = 0; j < sucursales[i].length; j++){
+            const tablaSucursal = `${sucursales[i]}`
+
+            nuevaTr.innerHTML = `<td>${tablaSucursal}</td>`
+        }
+    }
+}
+ventasPorSucursal()
+
+//     ----------------  FUNCIONES --------------------- //
+
+const precioMaquina = (componentes) => {
+  let suma = 0
+   for (let precio of precios){
+     for (let arr of componentes){
+       if (precio.includes(arr)){
+         suma += precio[1]}
+       }
+     }
+       
+     return suma
+   }
+
+//console.log(precioMaquina(["Monitor GPRS 3000","Motherboard ASUS 1500"]))
+//console.log(precioMaquina(["Monitor ASC 543", "Motherboard MZI"]))
+
+const cantidadVentasComponente = (componente) => {
+  let sumaComponentes = 0
+  for (let venta of ventas){
+    if(venta[4].includes(componente)){
+      sumaComponentes++
+    }
+  }
+    return sumaComponentes
+}
+//console.log(cantidadVentasComponente("Motherboard MZI"))
+
+const vendedoraDelMes = (mes, anio) => {
+
 }
 
-multiSelect()*/
-
-
-
-
-
-// PRECIO
-
-/*function precioMaquina (componentes) {
-  for (let i= 0; i < array.length; i++) {
-    console.log(array)
-    return array
-  }
-  if (array.includes(componentesVenta)){
-    
-  }
-}
-precioMaquina()*/

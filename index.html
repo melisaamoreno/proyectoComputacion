@@ -4,7 +4,7 @@
         <title>Registro de ventas</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="CSS/proyecto.css" rel="stylesheet">
+        <link href="css/proyecto.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> 
@@ -21,10 +21,13 @@
         <div class="div SucursalReporte">
             <div><h3>Ventas por sucursal</h3></div>
             <table>
-                <tr>
+                <thead>
                   <th class="sucursal">Sucursal</th>
                   <th class="totalVentas">Total ventas</th>
-                </tr>
+                </thead>
+                <tbody id="table-1">
+
+                </tbody>
               </table>
 
         </div>
@@ -41,26 +44,20 @@
             <h3>Ventas <button id="btnVenta"> <img src="../Proyecto/Iconos/plus.svg" class="plus"> Nueva venta </button></h3>
             <!--Btn modal-->
 
-            <table id="tables">
-                <tr>
-                  <th class="fecha">Fecha</th>
-                  <th>Vendedora</th>
-                  <th>Sucursal</th>
-                  <th>Componentes</th>
-                  <th>Precio</th>
-                  <th>Acciones</th>
-                </tr>
-                <tr>
-                   <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="icons"><img src="..//Proyecto/Iconos/pen.svg" class="pen"> <img src="..//Proyecto/Iconos/trash.svg" class="trash"></td>
-                </tr>
 
-              </table>
-            
+            <table>
+              <thead>
+                  <tr>
+                      <td>Fecha</td>
+                      <td>Vendedora</td>
+                      <td>Sucursal</td>
+                      <td>Componentes</td>
+                      <td>Precio</td>
+                      <td>Acciones</td>
+                  </tr>
+              </thead>
+              <tbody id="table-2"></tbody>
+          </table>
 
         </div>
     </div>
@@ -113,12 +110,12 @@
       </select>
   
        <p>Componentes</p>
-       <select name="componentes" class="selects multiple  selectmultiple" multiple >
+       <select name="componentes" class="selects multiple componenteSelect" multiple >
       
        </select>
   
        <p>Sucursal</p>
-       <select name="sucursal" class="selects">
+       <select name="sucursal" class="selects  optionSucursal">
           
        </select>
   
@@ -151,7 +148,7 @@
     </div> 
 
 
-<script src="JS/proyectocomputacion.js"></script>
+<script src="js/proyectocomputacion.js"></script>
 
     </body>
 </html>
