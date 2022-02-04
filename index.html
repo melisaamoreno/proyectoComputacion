@@ -5,150 +5,137 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/proyecto.css" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> 
-<link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
-    
+
     </head>
     <body>
-    <div class="container">
-        <div class="div SucursalReporte">
-            <div><h3>Ventas por sucursal</h3></div>
-            <table>
-                <thead>
-                  <th class="sucursal">Sucursal</th>
-                  <th class="totalVentas">Total ventas</th>
-                </thead>
-                <tbody id="table-1">
+        <div class="container">
+            <div class="div SucursalReporte">
+                <div><h3>Ventas por sucursal</h3></div>
+                <table>
+                    <thead>
+                      <th class="sucursal">Sucursal</th>
+                      <th class="totalVentas">Total ventas</th>
+                    </thead>
+                    <tbody id="table-1">
+        
+                    </tbody>
+                  </table>
+        
+            </div>
 
-                </tbody>
-              </table>
-
+            <div class="div SucursalReporte">
+                <h3>Reportes</h3>
+                <p class="estrella">Productos estrella:</p> 
+                <p class="vendedoraEstrella">Vendedora que más ingresos generó:</p> 
+        
+            </div>
         </div>
+        <div class="container">
+            <div class="div ventas"> 
+                <h3>Ventas <button id="btnVenta"> + Nueva venta </button></h3>
+                <!--Btn modal-->
 
-        <div class="div SucursalReporte">
-            <h3>Reportes</h3>
-            <p class="estrella">Productos estrella:</p> 
-            <p class="vendedoraEstrella">Vendedora que más ingresos generó:</p> 
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Fecha</td>
+                            <td>Vendedora</td>
+                            <td>Sucursal</td>
+                            <td>Componentes</td>
+                            <td>Precio</td>
+                            <td>Acciones</td>
+                        </tr>
+                    </thead>
+                    <tbody id="table-2"></tbody>
+                </table>
+          
+              </div>
+          </div>
 
-        </div>
-    </div>
-    <div class="container">
-        <div class="div ventas"> 
-            <h3>Ventas <button id="btnVenta"> <img src="../Proyecto/Iconos/plus.svg" class="plus"> Nueva venta </button></h3>
-            <!--Btn modal-->
-
-
-            <table>
-              <thead>
-                  <tr>
-                      <td>Fecha</td>
-                      <td>Vendedora</td>
-                      <td>Sucursal</td>
-                      <td>Componentes</td>
-                      <td>Precio</td>
-                      <td>Acciones</td>
-                  </tr>
-              </thead>
-              <tbody id="table-2"></tbody>
-          </table>
-
-        </div>
-    </div>
-
-     <!--Modal-->
-     <!--Agregar venta-->
+          <!--Modal-->
+ <!--Agregar venta-->
 
 <div class="modal-container"> 
-  
-     <div id="modal" class="div modal">
-        <span class="close" id="btnClose">&times;</span>
-    <form id="addSell">
-     <h3>Agregar venta</h3>
 
-     <p>Vendedora</p>
-     <select name="vendedoras" class="selects  select-vendedora">
+    <div id="modal" class="div modal">
+       <span class="close" id="btnClose">&times;</span>
+   <form id="addSell">
+    <h3>Agregar venta</h3>
+   
+    <p>Vendedora</p>
+    <select name="vendedoras" class="selects  select-vendedora">
+   </select>
+   
+    <p>Componentes</p>
+    <select name="componentes" class="selects multiple" multiple>
     </select>
+    <p>Sucursal</p>
+ <select name="sucursal" class="selects  sede">
+ </select>
 
-     <p>Componentes</p>
-     <select name="componentes" class="selects multiple" multiple>
-     </select>
+ <p>Fecha</p>
+ <input type="date" name="datetime" class="selects">
 
-     <p>Sucursal</p>
-     <select name="sucursal" class="selects  sede">
-     </select>
-
-     <p>Fecha</p>
-     <input type="date" name="datetime" class="selects">
-
-     <div class="buttons">
-     <button id="cancelar" class="btns">Cancelar</button>
-     <button id="guardar" class="btns save">Guardar</button>
-    </form>
-    </div>
-     </div>
+ <div class="buttons">
+ <button id="cancelar" class="btns">Cancelar</button>
+ <button id="guardar" class="btns save">Guardar</button>
+</form>
+</div>
+ </div>
 </div>
 
-
-
 <!--  ------------- Editar venta ------------------ --->
-  <div class="modal-container edit"> 
-       <div id="modal" class="div modal"> 
-       <span class="close" id="xcloser">&times;</span>
-        
-       <h3>Editar venta</h3> 
-  <form id="formEdit">
-       <p>Vendedora</p>
-       <select name="vendedoras" class="selects  select-seller">
-         
-      </select>
-  
-       <p>Componentes</p>
-       <select name="componentes" class="selects multiple componenteSelect" multiple >
+<div class="modal-container edit"> 
+    <div id="modal" class="div modal"> 
+    <span class="close" id="xcloser">&times;</span>
+     
+    <h3>Editar venta</h3> 
+ <form id="formEdit">
+    <p>Vendedora</p>
+    <select name="vendedoras" class="selects  select-seller">
       
-       </select>
-  
-       <p>Sucursal</p>
-       <select name="sucursal" class="selects  optionSucursal">
-          
-       </select>
-  
-       <p>Fecha</p>
-       <input type="date" name="datetime" class="selects">
-  
-       <div class="buttons">
-       <button id="cancelar" class="btns">Cancelar</button>
-       <button id="guardar" class="btns save">Guardar</button> 
-      </form>
-      </div>
-       </div>
-  </div>
-  
-
- <!-- ---------------Eliminar venta----------------->
-    
-  <div class="modal-container modalDelete"> 
-    <div id="modal" class="div modal">
-       <span class="close" id="xclose">&times;</span>
-    <h3>Eliminar venta</h3>
-    <h2>¿Está seguro?</h2>
-    <p>Esta acción no se puede revertir</p>
-
+   </select>
+ 
+    <p>Componentes</p>
+    <select name="componentes" class="selects multiple componenteSelect" multiple >
+   
+    </select>
+ 
+    <p>Sucursal</p>
+    <select name="sucursal" class="selects  optionSucursal">
+       
+    </select>
+ 
+    <p>Fecha</p>
+    <input type="date" name="datetime" class="selects">
+ 
     <div class="buttons">
-      <button id="cancelarDelete" class="btns">Cancelar</button>
-      <button id="delete" class="btns Delete">Eliminar</button>
-     </div>
+    <button id="cancelar" class="btns">Cancelar</button>
+    <button id="guardar" class="btns save">Guardar</button> 
+   </form>
+   </div>
     </div>
-    </div> 
+ </div>
+ 
+ 
+ <!-- ---------------Eliminar venta----------------->
+ 
+ <div class="modal-container modalDelete"> 
+ <div id="modal" class="div modal">
+    <span class="close" id="xclose">&times;</span>
+ <h3>Eliminar venta</h3>
+ <h2>¿Está seguro?</h2>
+ <p>Esta acción no se puede revertir</p>
+ 
+ <div class="buttons">
+   <button id="cancelarDelete" class="btns">Cancelar</button>
+   <button id="delete" class="btns Delete">Eliminar</button>
+  </div>
+ </div>
+ </div> 
 
 
 <script src="js/proyectocomputacion.js"></script>
 
-    </body>
-</html>
+</body>
+</html> 

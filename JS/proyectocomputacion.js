@@ -75,10 +75,9 @@ const crearTabla = () => {
       //console.log(componentesVenta)
 
     
-       newTr.innerHTML = `<td>${fechaVentas},</td><td>${nombreVenta}</td><td>${sucursalVenta}</td><td>${componentesVenta}</td> <td>precio</td> <td><img src="..//Proyecto/Iconos/pen.svg" class="pen  icon"> <img src="..//Proyecto/Iconos/trash.svg" class="trash   icon"></td>`
+       newTr.innerHTML = `<td>${fechaVentas},</td><td>${nombreVenta}</td><td>${sucursalVenta}</td><td>${componentesVenta}</td> <td>precio</td> <td><img src="..//Proyecto/Iconos/pen.svg" class="pen"><img src="..//Proyecto/Iconos/trash.svg" class="trash"></td>`
     
-      } }
-
+      }}
     
 }
 
@@ -140,12 +139,15 @@ agregarSucursal()
 
 
 //     ---------------  EDITAR VENTA -------------------- //
-const btnEditar = document.querySelector('.pen')
+const btnEditar = document.querySelectorAll('.pen')
 const editarModal = document.querySelector('.edit')
 const closebtn = document.querySelector('#xcloser')
 
-btnEditar.addEventListener('click', () => {
-  editarModal.style.display = "block"
+  btnEditar.forEach(item => {
+  item.addEventListener('click', () =>{
+    editarModal.style.display = "block"
+  })
+  
 })
 closebtn.addEventListener('click', () => {
   editarModal.style.display = "none"
@@ -191,15 +193,25 @@ sucursalSelect()
 
 
 //     --------------------  ELIMINAR VENTA  ------------------------------ //
+const trash = document.querySelector('.trash');
+//console.log(trash)
 const closer = document.querySelector('#xclose');
 const modalDelete = document.querySelector('.modalDelete');
-const trash = document.querySelector('.trash');
 const btnDelete = document.querySelector('#delete');
 const cancelarDelete = document.querySelector('#cancelarDelete');
 
-trash.addEventListener('click', () => {
-  modalDelete.style.display = "block"
-})
+/*trash.foreach(item => {
+  item.addEventListener('click', () =>{
+    modalDelete.style.display = "block"
+  })
+  })
+  
+/*for (let i = 0; i < trash.length; i++){
+  trash.addEventListener('click', () =>{
+    modalDelete.style.display = "block"
+  })
+}
+*/
 
 closer.addEventListener('click', () => {
   modalDelete.style.display = "none"
@@ -258,4 +270,3 @@ const cantidadVentasComponente = (componente) => {
 const vendedoraDelMes = (mes, anio) => {
 
 }
-
