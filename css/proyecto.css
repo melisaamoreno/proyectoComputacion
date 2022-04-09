@@ -2,13 +2,14 @@
     box-sizing: border-box;
 }
 body{
-    background-color: gainsboro;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    background-color: rgb(104, 99, 169);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: medium;
 }
 
 h3{
     color: rgb(0, 0, 0);
-    background-color: rgb(14, 166, 204);
+    background-color: rgb(166, 166, 166);
     padding: 20px;
     margin-top: 0px;
 }
@@ -38,14 +39,15 @@ p{
     margin: 5px;
 }
 
+
 .ventas{
     width: 100%;
     margin: 5px;
 }
 .modal{
     width: 400px;
-    margin: 5px;
-    margin: 10% auto; 
+
+    margin: 5% auto; 
 }
 .modal-container{
     display: none;
@@ -75,11 +77,13 @@ p{
     margin-top: 10px;
 }
 .btns{
-margin: 10px;
-padding: 5px;
+  margin: 10px;
+  padding: 5px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 .save{
-    background-color: rgb(100, 245, 189);
+    background-color:rgb(163, 245, 100);
     
 }
 .close {
@@ -96,11 +100,12 @@ padding: 5px;
     float: right;
     width: 150px;
     height: 30px;
-    background-color: rgb(100, 245, 189);
+    background-color: rgb(163, 245, 100);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .Delete{
-    background-color: red;
+    background-color: rgb(217, 92, 92);
 }
 .plus{
     width: 18px;
@@ -108,18 +113,18 @@ padding: 5px;
 
 table{
     border: none;
-
     width: 95%;
     margin: auto
 }
 td, th{
     border-bottom: 1px solid #ccc;
-    text-align: left;
+    text-align: center;
     padding: 8px;
     height: 25px;
 }
 
-.pen, .trash{
-    width: 18px;
+.fa-solid{
+    width: 15px;
     margin: 5px;
+    color: #000000;
 }
