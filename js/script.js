@@ -4,21 +4,28 @@
 const table = document.querySelector('#table')
 
 const crearTabla = (ventas) => {
-   for (const venta of local.ventas) {
-    const trs = document.createElement('tr')
-    table.appendChild(trs)
-
-    trs.innerHTML = 
-             `<td>${venta.fecha}</td>
-             <td>${venta.nombreVendedora}</td>
-             <td>${venta.sucursal}</td>
-             <td>${venta.componentes}</td>
-             <td>${precioMaquina(venta.componentes)}</td>
-             <td><i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash"></i></td>`
-   }
+    
+    for (const venta of local.ventas) {
+        const trs = document.createElement('tr')
+        table.appendChild(trs)
+        
+        trs.innerHTML = 
+        `<td>${venta.fecha}</td>
+        <td>${venta.nombreVendedora}</td>
+        <td>${venta.sucursal}</td>
+        <td>${venta.componentes}</td>
+        <td>${precioMaquina(venta.componentes)}</td>
+        <td><i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash"></i></td>`
+    
+    }
 }
-
 crearTabla(ventas)
+
+const limpiarTabla = () => {
+    table.innerHTML = ""
+    crearTabla()
+}
+limpiarTabla()
 
 //  ---------- AGREGAR VENTA ---------- //
 const btnModal = document.querySelector('#btnVenta');
@@ -72,6 +79,8 @@ cancelarDelete.addEventListener('click', () => {
     modalDelete.style.display = "none"
 })
 
+
+
 // -------- tabla Ventas por Sucursal / Reportes --------- //
 const tablaPorSucursal = document.querySelector('#table-1');
 
@@ -98,3 +107,4 @@ const vendedoraMayor = () => {
     vendedoraEstrella.innerHTML += vendedoraHistorica()
 }
 vendedoraMayor()
+
