@@ -26,6 +26,7 @@ const local = {
     { fecha: new Date(2019, 1, 14), nombreVendedora: "Ada", componentes: ["Motherboard ASUS 1200", "HDD Toyiva"], sucursal: "Centro"}
   ],
 
+  
   precios: [
     { componente: "Monitor GPRS 3000", precio: 200 },
     { componente: "Motherboard ASUS 1500", precio: 120 },
@@ -56,16 +57,14 @@ const precioComponente = (componente) => {
 }
 //console.log(precioComponente("Motherboard ASUS 1500"))
 
-const precioMaquina = (arrayComponentes) => {
+const precioMaquina = (arrayComponente) => {
   let acc = 0
-  for (const componente of arrayComponentes){
+  for (const componente of arrayComponente){
     acc += precioComponente(componente)
   }
    return acc
 }
-
 //console.log(precioMaquina(["Motherboard MZI", "RAM Quinston Fury"]))
-
 
 //cantidadVentasComponente(componente): recibe un componente y devuelve la cantidad de veces que fue vendido,
 //o sea que formó parte de una máquina que se vendió. La lista de ventas no se pasa por parámetro,
@@ -157,7 +156,6 @@ const componenteMasVendido = () => {
   }
   return masVendido
 }
-
 //console.log(componenteMasVendido());
 
 

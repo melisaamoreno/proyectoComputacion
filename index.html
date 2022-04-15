@@ -9,7 +9,7 @@
     <title>Registro de ventas</title>
 </head>
 
-<body>
+<body>    
     <div class="container">
         <div class="div SucursalReporte">
             <div><h3>Ventas por sucursal</h3></div>
@@ -73,15 +73,15 @@
 
 <p>Componentes</p>
 <select id="componentes" class="selects multiple" multiple>
-    <option value="Monitor GPRS 3000">Monitor GPRS 3000</option>
-    <option value="Motherboard ASUS 1500">Motherboard ASUS 1500</option>
-    <option value="Monitor ASC 543">Monitor ASC 543</option>
-    <option value="Motherboard ASUS 1200">Motherboard ASUS 1200</option>
-    <option value="Motherboard MZI">Motherboard MZI</option>
-    <option value="HDD Toyiva">HDD Toyiva</option>
-    <option value="HDD Wezter Dishital">HDD Wezter Dishital</option>
-    <option value="RAM Quinston">RAM Quinston</option>
-    <option value="RAM Quinston Fury">RAM Quinston Fury</option>
+    <option value="Monitor GPRS 3000" class="option-componente">Monitor GPRS 3000</option>
+    <option value="Motherboard ASUS 1500" class="option-componente">Motherboard ASUS 1500</option>
+    <option value="Monitor ASC 543" class="option-componente">Monitor ASC 543</option>
+    <option value="Motherboard ASUS 1200" class="option-componente">Motherboard ASUS 1200</option>
+    <option value="Motherboard MZI" class="option-componente">Motherboard MZI</option>
+    <option value="HDD Toyiva" class="option-componente">HDD Toyiva</option>
+    <option value="HDD Wezter Dishital" class="option-componente">HDD Wezter Dishital</option>
+    <option value="RAM Quinston" class="option-componente">RAM Quinston</option>
+    <option value="RAM Quinston Fury" class="option-componente">RAM Quinston Fury</option>
 </select>
 <p>Sucursal</p>
 <select name="sucursal" class="selects  sede">
@@ -94,7 +94,7 @@
 
 <div class="buttons">
 <button id="cancelar" class="btns">Cancelar</button>
-<button id="guardar" type="submit" class="btns save">Guardar</button>
+<button id="guardar" class="btns save">Guardar</button>
 </form>
 </div>
 </div>
@@ -106,7 +106,7 @@
 <span class="close" id="xcloser">&times;</span>
  
 <h3>Editar venta</h3> 
-<form>
+<form id="form">
 <p>Vendedora</p>
 <select id="vendedoras" class="selects  select-seller">
     <option value="Ada">Ada</option>
@@ -139,7 +139,7 @@
 
 <div class="buttons">
 <button id="cancelar" class="btns">Cancelar</button>
-<button id="guardarEdit" type="submit" class="btns save">Guardar</button> 
+<button id="guardarEdit" class="btns save">Guardar</button> 
 </form>
 </div>
 </div>
@@ -161,7 +161,6 @@
   </div>
  </div>
 </div> 
-
 
 <script src="js/ventas.js"> </script>
 <script src="js/script.js"></script>

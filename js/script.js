@@ -1,31 +1,28 @@
 // Funcionalidad
 
+
 // ---- agregar data a la tabla
+
 const table = document.querySelector('#table')
 
-const crearTabla = (ventas) => {
-    
-    for (const venta of local.ventas) {
+const crearTabla = (id) => {
+    const { ventas } = local
+    for (const venta of ventas) {
+        const { fecha, nombreVendedora, sucursal, componentes } = venta
         const trs = document.createElement('tr')
         table.appendChild(trs)
         
         trs.innerHTML = 
-        `<td>${venta.fecha}</td>
-        <td>${venta.nombreVendedora}</td>
-        <td>${venta.sucursal}</td>
-        <td>${venta.componentes}</td>
-        <td>${precioMaquina(venta.componentes)}</td>
-        <td><i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash"></i></td>`
-    
+        `<td>${fecha}</td>
+        <td>${nombreVendedora}</td>
+        <td>${sucursal}</td>
+        <td>${componentes}</td>
+        <td>${precioMaquina(componentes)}</td>
+        <td> <button class="icono-editado" ><i class="fas fa-pencil-alt"></i></button>
+        <button class="icono-eliminado"  ><i class="fas fa-trash-alt"></i></button></td>`
     }
 }
-crearTabla(ventas)
-
-const limpiarTabla = () => {
-    table.innerHTML = ""
-    crearTabla()
-}
-limpiarTabla()
+crearTabla()
 
 //  ---------- AGREGAR VENTA ---------- //
 const btnModal = document.querySelector('#btnVenta');
@@ -44,7 +41,7 @@ btnClose.addEventListener('click', () => {
 })
 
 //     ---------------  EDITAR VENTA -------------------- //
-const btnEditar = document.querySelectorAll('.fa-pen')
+const btnEditar = document.querySelectorAll('.fa-pencil-alt')
 const editarModal = document.querySelector('.edit')
 const closebtn = document.querySelector('#xcloser')
 
@@ -61,7 +58,7 @@ closebtn.addEventListener('click', () => {
 //     --------------------  ELIMINAR VENTA  ------------------------------ //
 const closer = document.querySelector('#xclose');
 const modalDelete = document.querySelector('.modalDelete');
-const trash = document.querySelectorAll('.fa-trash');
+const trash = document.querySelectorAll('.fa-trash-alt');
 const btnDelete = document.querySelector('#delete');
 const cancelarDelete = document.querySelector('#cancelarDelete');
 
@@ -78,8 +75,6 @@ closer.addEventListener('click', () => {
 cancelarDelete.addEventListener('click', () => {
     modalDelete.style.display = "none"
 })
-
-
 
 // -------- tabla Ventas por Sucursal / Reportes --------- //
 const tablaPorSucursal = document.querySelector('#table-1');

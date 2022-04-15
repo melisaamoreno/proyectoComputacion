@@ -118,13 +118,18 @@ table{
 }
 td, th{
     border-bottom: 1px solid #ccc;
-    text-align: center;
     padding: 8px;
     height: 25px;
 }
 
-.fa-solid{
-    width: 15px;
-    margin: 5px;
-    color: #000000;
+.icono-editado {
+    background-color: white;
+    color: rgb(98, 218, 7);
+    margin-right: 2px;
+}
+
+.icono-eliminado {
+    background-color: white;
+    color: rgb(202, 5, 5);
+    margin-right: 2px;
 }
