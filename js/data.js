@@ -16,22 +16,45 @@ btnsubmit.addEventListener('click', (e) => {
     nombreVendedora : document.querySelector('#vendedoras').value,
     sucursal : document.querySelector('#sucursal').value,
     componentes : componentesSeleccionados,
-    //editar : `<td><i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash"></i></td>`
     }
 
     local.ventas.push(nuevaVenta)
 
-
     table.innerHTML = ""
     crearTabla()
     modal.style.display = "none"
-    console.log(local.ventas);
+
 })
 
 
-
-
-
-
-
 //Eliminar venta
+
+const btnEliminar = document.querySelectorAll('.icono-eliminado')
+const confirmarDelete = document.querySelector('#delete')
+
+const asignarId = () => {
+  btnEliminar.forEach(btn => {
+    btn.addEventListener('click', () => {
+      let idBotoncito = parseInt(btn.getAttribute('id')) //ID del Tachito
+      confirmarDelete.setAttribute('confirmarId', idBotoncito) //ID del tachito al boton de confirmar Delete
+      console.log(idBotoncito);
+    })
+  })
+}
+asignarId()
+
+//const confirmarDelete = document.querySelector('#delete')
+const eliminar = () => {
+  const {ventas} = local
+  modalDelete.style.display = 'none'
+
+  ventas.forEach((venta, index) => {
+    if (index === parseInt(confirmarDelete.getAttribute('confirmarId'))) {
+      ventas.splice(index, 1)
+      table.innerHTML = ""
+      crearTabla()
+    }
+  })
+}
+
+confirmarDelete.addEventListener('click', eliminar)

@@ -5,22 +5,23 @@
 
 const table = document.querySelector('#table')
 
-const crearTabla = (id) => {
+const crearTabla = () => {
     const { ventas } = local
-    for (const venta of ventas) {
-        const { fecha, nombreVendedora, sucursal, componentes } = venta
+        ventas.forEach((venta, index) => {
         const trs = document.createElement('tr')
         table.appendChild(trs)
         
         trs.innerHTML = 
-        `<td>${fecha}</td>
-        <td>${nombreVendedora}</td>
-        <td>${sucursal}</td>
-        <td>${componentes}</td>
-        <td>${precioMaquina(componentes)}</td>
-        <td> <button class="icono-editado" ><i class="fas fa-pencil-alt"></i></button>
-        <button class="icono-eliminado"  ><i class="fas fa-trash-alt"></i></button></td>`
-    }
+        `<td>${venta.fecha}</td>
+        <td>${venta.nombreVendedora}</td>
+        <td>${venta.sucursal}</td>
+        <td>${venta.componentes}</td>
+        <td>${precioMaquina(venta.componentes)}</td>
+        <td> <button class="icono-editado" id=${index}><i class="fas fa-pencil-alt"></i></button>
+        <button class="icono-eliminado" id=${index}><i class="fas fa-trash-alt"></i></button></td>`
+    
+    })
+    
 }
 crearTabla()
 
