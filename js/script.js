@@ -1,3 +1,4 @@
+
 // Funcionalidad
 // ---- agregar data a la tabla
 
@@ -10,7 +11,7 @@ const crearTabla = () => {
         table.appendChild(trs)
         
         trs.innerHTML = 
-        `<td>${new Date(venta.fecha)}</td>
+        `<td>${venta.fecha}</td>
         <td>${venta.nombreVendedora}</td>
         <td>${venta.sucursal}</td>
         <td>${venta.componentes}</td>
@@ -35,8 +36,7 @@ btnModal.addEventListener('click', () => {
     modal.style.display = "block"
 })
 
-btnClose.addEventListener('click', (e) => {
-    e.preventDefault()
+btnClose.addEventListener('click', () => {
     modal.style.display = "none"
 })
 
@@ -63,29 +63,28 @@ const cerrarModal = () => {
 }
 cerrarModal()
 
+ 
 //     --------------------  ELIMINAR VENTA  ------------------------------ //
+
+
 const botonEliminar = () => {
-    const trash = document.querySelectorAll('.icono-eliminado');
-    const modalDelete = document.querySelector('.modalDelete')
-    
-    trash.forEach(element => {
-        element.addEventListener('click', () => {
-            modalDelete.style.display = "block"
-        })
-    })
-}
+ const modalDelete = document.querySelector('.modalDelete');
+ const trash = document.querySelectorAll('.icono-eliminado');
+
+     trash.forEach(boton => {
+       boton.addEventListener('click', () => {
+       modalDelete.style.display = "block"
+     })
+   })
+  }
 botonEliminar()
 
-const cerrarEliminar = () => {
-    const cancelarDelete = document.querySelector('#cancelarDelete');
-    const modalDelete = document.querySelector('.modalDelete')
-    
-    cancelarDelete.addEventListener('click', () => {
+const cancelarDelete = document.querySelector('#cancelarDelete');
+const modalDelete = document.querySelector('.modalDelete');
+
+cancelarDelete.addEventListener('click', () => {
     modalDelete.style.display = "none"
 })
-}
-cerrarEliminar()
-
 
 // -------- tabla Ventas por Sucursal / Reportes --------- //
 const tablaPorSucursal = document.querySelector('#table-1');
@@ -113,4 +112,3 @@ const vendedoraMayor = () => {
     vendedoraEstrella.innerHTML += vendedoraHistorica()
 }
 vendedoraMayor()
-

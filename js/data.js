@@ -5,7 +5,6 @@ const actualizarTabla = () => {
   botonEliminar()
 }
 
-
 // Agregar ventas
 let btnsubmit = document.querySelector('#guardar')
 
@@ -27,8 +26,9 @@ btnsubmit.addEventListener('click', (e) => {
 
     local.ventas.push(nuevaVenta)
 
-    modal.style.display = "none"
     actualizarTabla()
+    modal.style.display = "none"
+
 })
 
 //Eliminar venta
@@ -48,13 +48,14 @@ const asignarId = () => {
 asignarId()
 
 const eliminar = () => {
-  const modalDelete = document.querySelector('.modalDelete')
   const {ventas} = local
+  modalDelete.style.display = 'none'
+
   ventas.forEach((venta, index) => {
     if (index === parseInt(confirmarDelete.getAttribute('confirmarId'))) {
       ventas.splice(index, 1)
-
-      modalDelete.style.display = "none"
+      
+      
       actualizarTabla()
     }
   })
@@ -78,6 +79,9 @@ const asignarIdEditar = () => {
   })
 }
 asignarIdEditar()
+
+const editarModal = document.querySelector('.edit')
+
 
 let btnsubmitEdit = document.querySelector('#guardarEdit')
 btnsubmitEdit.addEventListener('click', (e) => {
