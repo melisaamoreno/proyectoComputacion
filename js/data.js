@@ -26,10 +26,9 @@ btnsubmit.addEventListener('click', (e) => {
 
     local.ventas.push(nuevaVenta)
 
-    actualizarTabla()
     modal.style.display = "none"
-
-})
+    actualizarTabla()
+  })
 
 //Eliminar venta
 
@@ -47,21 +46,19 @@ const asignarId = () => {
 }
 asignarId()
 
-const eliminar = () => {
-  const {ventas} = local
+
+confirmarDelete.addEventListener('click', () => {
+   const {ventas} = local
   modalDelete.style.display = 'none'
 
   ventas.forEach((venta, index) => {
     if (index === parseInt(confirmarDelete.getAttribute('confirmarId'))) {
       ventas.splice(index, 1)
       
-      
       actualizarTabla()
     }
   })
-}
-
-confirmarDelete.addEventListener('click', eliminar)
+})
 
 
 // Editar Venta

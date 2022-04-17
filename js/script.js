@@ -1,6 +1,8 @@
 
 // Funcionalidad
 // ---- agregar data a la tabla
+const format = (date, locale, options) => new Intl.DateTimeFormat(locale, options).format(date)
+
 
 const table = document.querySelector('#table')
 
@@ -11,7 +13,7 @@ const crearTabla = () => {
         table.appendChild(trs)
         
         trs.innerHTML = 
-        `<td>${venta.fecha}</td>
+        `<td>${format(new Date (venta.fecha), 'es')}</td>
         <td>${venta.nombreVendedora}</td>
         <td>${venta.sucursal}</td>
         <td>${venta.componentes}</td>
