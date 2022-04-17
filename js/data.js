@@ -49,15 +49,17 @@ asignarId()
 
 confirmarDelete.addEventListener('click', () => {
    const {ventas} = local
-  modalDelete.style.display = 'none'
+  
 
   ventas.forEach((venta, index) => {
     if (index === parseInt(confirmarDelete.getAttribute('confirmarId'))) {
       ventas.splice(index, 1)
       
-      actualizarTabla()
     }
+     modalDelete.style.display = 'none'
+     actualizarTabla()
   })
+
 })
 
 
@@ -104,7 +106,7 @@ btnsubmitEdit.addEventListener('click', (e) => {
       ventas.splice(index, 1, editarEstaVenta)
     }
     
-    actualizarTabla()
-    editarModal.style.display = "none"
   })
+  actualizarTabla()
+  editarModal.style.display = "none"
 })

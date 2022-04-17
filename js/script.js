@@ -13,7 +13,7 @@ const crearTabla = () => {
         table.appendChild(trs)
         
         trs.innerHTML = 
-        `<td>${format(new Date (venta.fecha), 'es')}</td>
+        `<td>${format(new Date (venta.fecha),'es')}</td>
         <td>${venta.nombreVendedora}</td>
         <td>${venta.sucursal}</td>
         <td>${venta.componentes}</td>
