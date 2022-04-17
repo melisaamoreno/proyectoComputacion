@@ -10,7 +10,7 @@ const crearTabla = () => {
         table.appendChild(trs)
         
         trs.innerHTML = 
-        `<td>${venta.fecha}</td>
+        `<td>${new Date(venta.fecha)}</td>
         <td>${venta.nombreVendedora}</td>
         <td>${venta.sucursal}</td>
         <td>${venta.componentes}</td>
@@ -25,7 +25,7 @@ crearTabla()
 
 //  ---------- AGREGAR VENTA ---------- //
 const btnModal = document.querySelector('#btnVenta');
-const btnClose = document.querySelector('.close');
+const btnClose = document.querySelector('.btnClose');
 const btnCancel = document.querySelector('#cancelar');
 const modal = document.querySelector('.modal-container');
 
@@ -35,45 +35,57 @@ btnModal.addEventListener('click', () => {
     modal.style.display = "block"
 })
 
-btnClose.addEventListener('click', () => {
+btnClose.addEventListener('click', (e) => {
+    e.preventDefault()
     modal.style.display = "none"
 })
 
 //     ---------------  EDITAR VENTA -------------------- //
-const btnEditar = document.querySelectorAll('.fa-pencil-alt')
-const editarModal = document.querySelector('.edit')
-const closebtn = document.querySelector('#xcloser')
+const botonEditar = () => {
+    const editarModal = document.querySelector('.edit')
+    const btnEditar = document.querySelectorAll('.icono-editado')
+    
+    btnEditar.forEach(btn => {
+        btn.addEventListener('click', () => {
+            editarModal.style.display= "block"
+        })
+    })
+}
+botonEditar()
 
-btnEditar.forEach(item => {
-  item.addEventListener('click', () => {
-  editarModal.style.display= "block"
-  })
-})
+const cerrarModal = () => {
+    const editarModal = document.querySelector('.edit')
+   const closebtn = document.querySelector('.btnCloseEdit')
+     closebtn.addEventListener('click', (e) => {
+       e.preventDefault()
+     editarModal.style.display = "none"
+ })
+}
+cerrarModal()
 
-closebtn.addEventListener('click', () => {
-  editarModal.style.display = "none"
-})
- 
 //     --------------------  ELIMINAR VENTA  ------------------------------ //
-const closer = document.querySelector('#xclose');
-const modalDelete = document.querySelector('.modalDelete');
-const trash = document.querySelectorAll('.fa-trash-alt');
-const btnDelete = document.querySelector('#delete');
-const cancelarDelete = document.querySelector('#cancelarDelete');
+const botonEliminar = () => {
+    const trash = document.querySelectorAll('.icono-eliminado');
+    const modalDelete = document.querySelector('.modalDelete')
+    
+    trash.forEach(element => {
+        element.addEventListener('click', () => {
+            modalDelete.style.display = "block"
+        })
+    })
+}
+botonEliminar()
 
-trash.forEach(element => {
-  element.addEventListener('click', () => {
-  modalDelete.style.display = "block"
-  })
-})
-
-closer.addEventListener('click', () => {
+const cerrarEliminar = () => {
+    const cancelarDelete = document.querySelector('#cancelarDelete');
+    const modalDelete = document.querySelector('.modalDelete')
+    
+    cancelarDelete.addEventListener('click', () => {
     modalDelete.style.display = "none"
 })
-  
-cancelarDelete.addEventListener('click', () => {
-    modalDelete.style.display = "none"
-})
+}
+cerrarEliminar()
+
 
 // -------- tabla Ventas por Sucursal / Reportes --------- //
 const tablaPorSucursal = document.querySelector('#table-1');

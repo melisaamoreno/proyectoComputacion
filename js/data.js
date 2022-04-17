@@ -1,3 +1,11 @@
+const actualizarTabla = () => {
+  table.innerHTML = ""
+  crearTabla()
+  botonEditar()
+  botonEliminar()
+}
+
+
 // Agregar ventas
 let btnsubmit = document.querySelector('#guardar')
 
@@ -19,10 +27,8 @@ btnsubmit.addEventListener('click', (e) => {
 
     local.ventas.push(nuevaVenta)
 
-    table.innerHTML = ""
-    crearTabla()
     modal.style.display = "none"
-
+    actualizarTabla()
 })
 
 //Eliminar venta
@@ -42,14 +48,14 @@ const asignarId = () => {
 asignarId()
 
 const eliminar = () => {
+  const modalDelete = document.querySelector('.modalDelete')
   const {ventas} = local
-  modalDelete.style.display = 'none'
-
   ventas.forEach((venta, index) => {
     if (index === parseInt(confirmarDelete.getAttribute('confirmarId'))) {
       ventas.splice(index, 1)
-      table.innerHTML = ""
-      crearTabla()
+
+      modalDelete.style.display = "none"
+      actualizarTabla()
     }
   })
 }
@@ -97,8 +103,7 @@ btnsubmitEdit.addEventListener('click', (e) => {
       ventas.splice(index, 1, editarEstaVenta)
     }
     
-    table.innerHTML = ""
-    crearTabla()
+    actualizarTabla()
     editarModal.style.display = "none"
   })
 })
