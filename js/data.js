@@ -1,6 +1,5 @@
 // Agregar ventas
 let btnsubmit = document.querySelector('#guardar')
-let btnsubmitEdit = document.querySelector('#guardarEdit')
 
 btnsubmit.addEventListener('click', (e) => {
   e.preventDefault()
@@ -26,7 +25,6 @@ btnsubmit.addEventListener('click', (e) => {
 
 })
 
-
 //Eliminar venta
 
 const btnEliminar = document.querySelectorAll('.icono-eliminado')
@@ -43,7 +41,6 @@ const asignarId = () => {
 }
 asignarId()
 
-//const confirmarDelete = document.querySelector('#delete')
 const eliminar = () => {
   const {ventas} = local
   modalDelete.style.display = 'none'
@@ -58,3 +55,50 @@ const eliminar = () => {
 }
 
 confirmarDelete.addEventListener('click', eliminar)
+
+
+// Editar Venta
+const btnEditado = document.querySelectorAll('.icono-editado')
+const guardarEdit = document.querySelector('#guardarEdit')
+
+const asignarIdEditar = () => {
+  btnEditado.forEach(btn => {
+    btn.addEventListener('click', () => {
+      let idIconEditar = parseInt(btn.getAttribute('id'))
+      guardarEdit.setAttribute('guardarId', idIconEditar)
+      console.log(idIconEditar);
+
+    })
+  })
+}
+asignarIdEditar()
+
+let btnsubmitEdit = document.querySelector('#guardarEdit')
+btnsubmitEdit.addEventListener('click', (e) => {
+  e.preventDefault()
+  const {ventas} = local
+
+    let componentesSeleccionadosEdit = []
+    let listaDeComponentesEdit = document.querySelectorAll('.option-componente-editar')
+    listaDeComponentesEdit.forEach ( componente => 
+    componente.selected && componentesSeleccionadosEdit.push(componente.value))
+    console.log(componentesSeleccionadosEdit);
+
+
+   let editarEstaVenta = {
+    fecha : document.querySelector('#datetime-editar').value,
+    nombreVendedora : document.querySelector('#vendedoras-editar').value,
+    sucursal : document.querySelector('#sucursal-editar').value,
+    componentes : componentesSeleccionadosEdit
+    } 
+
+    ventas.forEach((venta, index) => {
+    if (index === parseInt(guardarEdit.getAttribute('guardarId'))){
+      ventas.splice(index, 1, editarEstaVenta)
+    }
+    
+    table.innerHTML = ""
+    crearTabla()
+    editarModal.style.display = "none"
+  })
+})

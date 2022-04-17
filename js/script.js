@@ -1,6 +1,4 @@
 // Funcionalidad
-
-
 // ---- agregar data a la tabla
 
 const table = document.querySelector('#table')
@@ -17,7 +15,7 @@ const crearTabla = () => {
         <td>${venta.sucursal}</td>
         <td>${venta.componentes}</td>
         <td>${precioMaquina(venta.componentes)}</td>
-        <td> <button class="icono-editado" id=${index}><i class="fas fa-pencil-alt"></i></button>
+        <td><button class="icono-editado" id=${index}><i class="fas fa-pencil-alt"></i></button>
         <button class="icono-eliminado" id=${index}><i class="fas fa-trash-alt"></i></button></td>`
     
     })
