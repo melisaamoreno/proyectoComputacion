@@ -1,8 +1,8 @@
 const actualizarTabla = () => {
   table.innerHTML = ""
   crearTabla()
-  botonEditar()
   botonEliminar()
+  botonEditar()
 }
 
 // Agregar ventas

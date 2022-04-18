@@ -1,8 +1,6 @@
-
 // Funcionalidad
 // ---- agregar data a la tabla
 const format = (date, locale, options) => new Intl.DateTimeFormat(locale, options).format(date)
-
 
 const table = document.querySelector('#table')
 
