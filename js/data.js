@@ -1,41 +1,45 @@
-const actualizarTabla = () => {
+let actualizarTabla = () => {
   table.innerHTML = ""
+  tablaPorSucursal.innerHTML = ""
   crearTabla()
+  ventasPorSucursal()
   botonEliminar()
+  asignarId()
   botonEditar()
+  asignarIdEditar()
+  productoMasVendido()
+  vendedoraMayor()
 }
 
-// Agregar ventas
-let btnsubmit = document.querySelector('#guardar')
+//Agregar nueva venta
+const btnsubmit = document.querySelector('#guardar')
 
 btnsubmit.addEventListener('click', (e) => {
   e.preventDefault()
   let componentesSeleccionados = []
-    let listaDeComponentes = document.querySelectorAll('.option-componente')
-    listaDeComponentes.forEach ( componente => 
-    componente.selected && componentesSeleccionados.push(componente.value))
-    console.log(componentesSeleccionados);
+  let listaDeComponentes = document.querySelectorAll('.option-componente')
+  listaDeComponentes.forEach ( componente => 
+  componente.selected && componentesSeleccionados.push(componente.value))
+  console.log(componentesSeleccionados);
 
 
-    let nuevaVenta = {
-    fecha : document.querySelector('#datetime').value,
-    nombreVendedora : document.querySelector('#vendedoras').value,
-    sucursal : document.querySelector('#sucursal').value,
-    componentes : componentesSeleccionados,
-    }
+  let nuevaVenta = {
+  fecha : document.querySelector('#datetime').value,
+  nombreVendedora : document.querySelector('#vendedoras').value,
+  sucursal : document.querySelector('#sucursal').value,
+  componentes : componentesSeleccionados,
+  }
 
-    local.ventas.push(nuevaVenta)
+  local.ventas.push(nuevaVenta)
 
-    modal.style.display = "none"
-    actualizarTabla()
-  })
+  modal.style.display = "none"
+  actualizarTabla()
+})
 
 //Eliminar venta
 
-const btnEliminar = document.querySelectorAll('.icono-eliminado')
-const confirmarDelete = document.querySelector('#delete')
-
 const asignarId = () => {
+  const btnEliminar = document.querySelectorAll('.icono-eliminado')
   btnEliminar.forEach(btn => {
     btn.addEventListener('click', () => {
       let idBotoncito = parseInt(btn.getAttribute('id')) //ID del Tachito
@@ -46,44 +50,41 @@ const asignarId = () => {
 }
 asignarId()
 
+const confirmarDelete = document.querySelector('#delete')
 
-confirmarDelete.addEventListener('click', () => {
-   const {ventas} = local
-  
-
+const confirmarEliminar = () => {
+  const {ventas} = local
   ventas.forEach((venta, index) => {
     if (index === parseInt(confirmarDelete.getAttribute('confirmarId'))) {
       ventas.splice(index, 1)
-      
-    }
-     modalDelete.style.display = 'none'
-     actualizarTabla()
-  })
 
-})
+      modalDelete.style.display = 'none'
+      actualizarTabla()
+    }
+  })
+}
+confirmarDelete.addEventListener('click', confirmarEliminar)
 
 
 // Editar Venta
-const btnEditado = document.querySelectorAll('.icono-editado')
 const guardarEdit = document.querySelector('#guardarEdit')
 
 const asignarIdEditar = () => {
+  const btnEditado = document.querySelectorAll('.icono-editado')
   btnEditado.forEach(btn => {
     btn.addEventListener('click', () => {
       let idIconEditar = parseInt(btn.getAttribute('id'))
       guardarEdit.setAttribute('guardarId', idIconEditar)
       console.log(idIconEditar);
-
     })
   })
 }
 asignarIdEditar()
 
+
 const editarModal = document.querySelector('.edit')
 
-
-let btnsubmitEdit = document.querySelector('#guardarEdit')
-btnsubmitEdit.addEventListener('click', (e) => {
+guardarEdit.addEventListener('click', (e) => {
   e.preventDefault()
   const {ventas} = local
 
@@ -104,9 +105,10 @@ btnsubmitEdit.addEventListener('click', (e) => {
     ventas.forEach((venta, index) => {
     if (index === parseInt(guardarEdit.getAttribute('guardarId'))){
       ventas.splice(index, 1, editarEstaVenta)
+
+
+      editarModal.style.display = "none"
+      actualizarTabla()
     }
-    
   })
-  actualizarTabla()
-  editarModal.style.display = "none"
 })

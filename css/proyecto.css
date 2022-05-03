@@ -144,4 +144,18 @@ td, th{
        flex-direction: column;
        align-items: center;
     }
+    .ventas{
+        overflow-y: hidden; 
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 425px){
+    .container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .SucursalReporte {
+        width: 100%;
+    }
 }

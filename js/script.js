@@ -17,8 +17,8 @@ const crearTabla = () => {
         <td>${venta.componentes}</td>
         <td>${precioMaquina(venta.componentes)}</td>
         <td><button class="icono-editado" id=${index}><i class="fas fa-pencil-alt"></i></button>
-        <button class="icono-eliminado" id=${index}><i class="fas fa-trash-alt"></i></button></td>`
-    
+        <button class="icono-eliminado" id=${index}"><i class="fas fa-trash-alt"></i></button></td>`
+
     })
     
 }
@@ -96,19 +96,23 @@ const ventasPorSucursal = () => {
     
         trs.innerHTML = `<td>${sucursal}</td>
                      <td>${ventasSucursal(sucursal)}</td>`
+
     }  
+
 }
 ventasPorSucursal()
 
 
+const productoEstrella = document.querySelector('.estrella')
+
 const productoMasVendido = () => {
-    const productoEstrella = document.querySelector('.estrella')
-    productoEstrella.innerHTML += componenteMasVendido()
+    productoEstrella.innerHTML = `Producto estrella: ${componenteMasVendido()}`
 }
 productoMasVendido()
 
+const vendedoraEstrella = document.querySelector('.vendedoraEstrella')
+
 const vendedoraMayor = () => {
-    const vendedoraEstrella = document.querySelector('.vendedoraEstrella')
-    vendedoraEstrella.innerHTML += vendedoraHistorica()
+    vendedoraEstrella.innerHTML = `Vendedora que más ingresos generó: ${vendedoraHistorica()}` 
 }
 vendedoraMayor()
